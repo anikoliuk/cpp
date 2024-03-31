@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonTitle, IonToolbar, IonFooter, IonInput, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonTitle, IonToolbar, IonFooter, IonInput, IonButton, IonButtons, IonMenuButton } from '@ionic/react';
 import './Home.css';
 
 const Task3: React.FC = () => {
@@ -17,6 +17,9 @@ const Task3: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot='start'>
+              <IonMenuButton/>
+          </IonButtons>
           <IonTitle>Лабораторна робота №1</IonTitle>
         </IonToolbar>
         <IonToolbar>
@@ -54,12 +57,6 @@ const Task3: React.FC = () => {
           </IonCardContent>
         </IonCard>
       </IonContent>
-
-      <IonFooter>
-        <IonToolbar>
-          <IonTitle>Лабораторна робота №1, Завдання №3</IonTitle>
-        </IonToolbar>
-      </IonFooter>
     </IonPage>
   );
 };

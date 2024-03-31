@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonCardHeader, IonCardTitle, IonButton, IonInput, IonCardSubtitle, IonTitle, IonCardContent, IonFooter, IonToolbar, IonCard } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonCardHeader, IonCardTitle, IonButton, IonInput, IonCardSubtitle, IonTitle, IonCardContent, IonFooter, IonToolbar, IonCard, IonMenu, IonItem, IonMenuButton, IonButtons } from '@ionic/react';
 import './Home.css';
 import { useState } from 'react';
 
@@ -20,11 +20,15 @@ const Task1: React.FC = () => {
   };
 
   return (
-    <IonPage>
+    <IonPage id='main-content'>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot='start'>
+              <IonMenuButton/>
+          </IonButtons>
           <IonTitle>Лабораторна робота №1</IonTitle>
         </IonToolbar>
+
         <IonToolbar>
           <IonTitle>Виконав студент групи КН-32. Ніколюк А.Ю. Варіант №18</IonTitle>
         </IonToolbar>
@@ -50,12 +54,6 @@ const Task1: React.FC = () => {
         </IonCardContent>
       </IonCard>
       </IonContent>
-      
-      <IonFooter>
-        <IonToolbar>
-          <IonTitle>Лабораторна робота №1, Завдання №1</IonTitle>
-        </IonToolbar>
-      </IonFooter>
     </IonPage>
   );
 };

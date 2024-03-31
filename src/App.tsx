@@ -1,5 +1,5 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact, IonTabs, IonTabBar, IonIcon, IonTabButton, IonLabel } from '@ionic/react';
+import { Redirect, Route, useLocation } from 'react-router-dom';
+import { IonApp, IonRouterOutlet, setupIonicReact, IonTabs, IonTabBar, IonIcon, IonTabButton, IonLabel, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonItem } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { playCircle, radio, library, search } from 'ionicons/icons';
 import Task1 from './pages/Task1';
@@ -24,39 +24,54 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Graph from './pages/Graph';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      
-      <IonTabs>
-      <IonRouterOutlet onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          <Redirect exact path="/" to="/task1" />
+const App: React.FC = () => {
 
-          <Route path="/task1" render={() => <Task1 />} exact={true} /> 
-          <Route path="/task2" render={() => <Task2 />} exact={true} />  
-          <Route path="/task3" render={() => <Task3 />} exact={true} /> 
-        </IonRouterOutlet>
+  return (
+    <IonApp>
+      <IonMenu contentId='main-content' >
+          <IonHeader>
+            <IonToolbar color='primary'>
+              <IonTitle>Меню</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+            <IonContent className='ion-padding'>
+              <IonItem routerLink=''>Лабораторна робота №1</IonItem>
+              <IonItem routerLink='graph'>Лабораторна робота №2</IonItem>
+          </IonContent>  
+      </IonMenu>
+      <IonReactRouter>  
+        <IonTabs>
+        <IonRouterOutlet onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            <Redirect exact path="/" to="/task1" />
 
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/task1">
-            <IonIcon icon={playCircle} />
-            <IonLabel>Task 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="radio" href="/task2">
-            <IonIcon icon={radio} />
-            <IonLabel>Task 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="library" href="/task3">
-            <IonIcon icon={library} />
-            <IonLabel>Task 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-        </IonTabs>  
-    </IonReactRouter>
-  </IonApp>
-);
+            <Route path="/task1" component={Task1} /> 
+            <Route path="/task2"component={Task2} />  
+            <Route path="/task3" component={Task3} />
+            <Route path="/graph" component={Graph} />
+          </IonRouterOutlet>
+
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="home" href="/task1">
+              <IonIcon icon={playCircle} />
+              <IonLabel>Task 1</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="radio" href="/task2">
+              <IonIcon icon={radio} />  
+              <IonLabel>Task 2</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="library" href="/task3">
+              <IonIcon icon={library} />
+              <IonLabel>Task 3</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+          </IonTabs>  
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

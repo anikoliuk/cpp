@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonCard, IonInput, IonButton, IonCardHeader, IonCardTitle, IonCardContent, IonPage, IonTitle, IonToolbar, IonFooter } from '@ionic/react';
+import { IonContent, IonHeader, IonCard, IonInput, IonButton, IonCardHeader, IonCardTitle, IonCardContent, IonPage, IonTitle, IonToolbar, IonFooter, IonButtons, IonMenuButton } from '@ionic/react';
 
 const Task2: React.FC = () => {
   const [a, setA] = useState<number>(0);
@@ -24,6 +24,9 @@ const Task2: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot='start'>
+              <IonMenuButton/>
+          </IonButtons>
           <IonTitle>Лабораторна робота №1</IonTitle>
         </IonToolbar>
         <IonToolbar>
@@ -56,12 +59,6 @@ const Task2: React.FC = () => {
             </IonCardContent>
         </IonCard>
       </IonContent>
-
-      <IonFooter>
-        <IonToolbar>
-          <IonTitle>Лабораторна робота №1, Завдання №2</IonTitle>
-        </IonToolbar>
-      </IonFooter>
     </IonPage>
   );
 };

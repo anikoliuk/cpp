@@ -25,6 +25,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Graph from './pages/Graph';
+import Data from './pages/Data';
 
 setupIonicReact();
 
@@ -41,6 +42,7 @@ const App: React.FC = () => {
             <IonContent className='ion-padding'>
               <IonItem routerLink=''>Лабораторна робота №1</IonItem>
               <IonItem routerLink='graph'>Лабораторна робота №2</IonItem>
+              <IonItem routerLink='data'>Лабораторна робота №3</IonItem>
           </IonContent>  
       </IonMenu>
       <IonReactRouter>  
@@ -52,6 +54,7 @@ const App: React.FC = () => {
             <Route path="/task2"component={Task2} />  
             <Route path="/task3" component={Task3} />
             <Route path="/graph" component={Graph} />
+            <Route path="/data" component={Data} />
           </IonRouterOutlet>
 
           <IonTabBar slot="bottom">
